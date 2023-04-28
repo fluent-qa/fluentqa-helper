@@ -1,7 +1,19 @@
 # FluentQA Helper
 
-Use as less code as you can to capture API request to database for automation code generation.
-A simple UI to do the proxy setting and start capturing API Request.
+- [zh-intro](README-zh.md)
+
+For Some Reason,I want to try to capture API to generate tests,
+but don't want to spend too much time on this.
+
+What I want:
+- Use as less code as you can to capture API request to database for automation code generation.
+- A simple UI to do the proxy setting and start capturing API Request.
+
+Finally, after doing some research,I completed it in one day.
+Features:
+1. cli to start mitmproxy and plugin
+2. cli to reset proxy
+3. ui to start mitmproxy,plugin and reset proxy
 
 ## Commandline Features:
 

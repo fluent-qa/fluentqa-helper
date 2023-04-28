@@ -4,7 +4,9 @@
 1. 录制API请求到数据库，可以是sqlite/postgresql
 2. 手工录制API的时候会手工设置浏览器代理，使用命令行或者UI的方式一键完成
 
-录制的API请求主要作用是为了方便生成API测试代码.s
+录制的API请求主要作用是为了方便生成API测试代码,测试和开发都可以使用. 选择需要的API保存到数据库, 方便后续继续使用. 
+
+这个工具的好处就是: 成本很低. 就一天时间实现最需要的功能.
 
 ## 命令行工具 Commandline Features
 
@@ -78,6 +80,14 @@ UI功能操作:
 select * from api_monitor_record where scenario_name=<your_record_name>
 ```
 - 可以对保存的数据进行批量转换成你需要的自动化测试或者数据准备工具
+
+## 使用到python相关
+
+主要包括了:
+1. typer: 命令行构建工具
+2. gradio: ui构建工具
+3. 数据库操作：原先自己就有的基于sqlmodel的访问工具
+4. poetry: python项目管理，打包/依赖管理
 
 
 ## To Do
