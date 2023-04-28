@@ -1,0 +1,4 @@
+[default]
+log_level = 'INFO'
+db = { url = "sqlite:///caputer.db" }
+mitm = { recorded_url = "https://www.baidu.com" }
