@@ -6,11 +6,13 @@ For Some Reason,I want to try to capture API to generate tests,
 but don't want to spend too much time on this.
 
 What I want:
+
 - Use as less code as you can to capture API request to database for automation code generation.
 - A simple UI to do the proxy setting and start capturing API Request.
 
 Finally, after doing some research,I completed it in one day.
 Features:
+
 1. cli to start mitmproxy and plugin
 2. cli to reset proxy
 3. ui to start mitmproxy,plugin and reset proxy
@@ -18,14 +20,17 @@ Features:
 ## Commandline Features:
 
 - Use mitmproxy to capture API request:
+
 ```shell
 poetry run qacli capture start --name="scenario_name"
 ```
-![img.png](img.png)
+
+![start.png](start.png)
 
 - Capture API Request Based on Configuration: configs/settings.toml
 
 captured URL setting: all request to www.baidu.com and www.bing.com will save to database
+
 ```shell
 mitm = { recorded_url = "https://www.baidu.com,https://www.bing.com" }
 ```
@@ -72,15 +77,18 @@ class ApiMonitorRecord(SQLModel, table=True):
 ```shell
 poetry run qaui
 ```
-![img.png](img.png)
+
+![qaui.png](qaui.png)
+
 - input capture name: any name your want
 - start to capture API request
 - Query Database to get all the request you want
+
 ```sql
 select * from api_monitor_record where scenario_name=<your_record_name>
 ```
-- export or do some changes for your automation testing
 
+- export or do some changes for your automation testing
 
 ## To Do
 
