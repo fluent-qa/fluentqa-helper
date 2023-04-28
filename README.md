@@ -1,4 +1,4 @@
-# FluentQA Helper
+# FluentQA Simple Capture
 
 - [zh-intro](README-zh.md)
 
