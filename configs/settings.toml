@@ -1,4 +1,4 @@
 [default]
 log_level = 'INFO'
-db = { url = "sqlite:///caputer.db" }
+db = { url = "sqlite:///capture.db" }
 mitm = { recorded_url = "https://www.baidu.com" }

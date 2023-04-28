@@ -10,9 +10,9 @@ def api_capture_tab():
             with gr.Column(scale=4):
                 inp = gr.Textbox(placeholder="输入本次录制接口访问名称", show_label=False)
             with gr.Column(scale=4):
-                capture_btn = gr.Button("开始录制接口访问", variant="primary")
-                stop_capture_btn = gr.Button("停止录制接口访问", variant="primary")
-                reset_proxy = gr.Button("重置MAC代理", variant="primary")
+                capture_btn = gr.Button("开始录制接口访问-API Capture", variant="primary")
+                stop_capture_btn = gr.Button("停止录制接口访问-Stop API Capture", variant="primary")
+                reset_proxy = gr.Button("重置MAC代理-Reset MAC Proxy Setting", variant="primary")
                 capture_btn.click(fn=start, inputs=inp)
                 stop_capture_btn.click(fn=stop_capture)
                 reset_proxy.click(fn=proxy_off)
