@@ -26,4 +26,3 @@ def init_ui():
         # code_generate_tab()
 
     qa_tools.launch()
-
