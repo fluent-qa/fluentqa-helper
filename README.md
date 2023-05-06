@@ -92,6 +92,10 @@ select * from api_monitor_record where scenario_name=<your_record_name>
 
 ## To Do
 
+- [] 后台管理录制数据
+- [] 接口数据下载
+- [] 下载数据修改后直接用于自动化测试
+- [] postman 接口数据管理
 - [] Code Generation
 - [] ......
 

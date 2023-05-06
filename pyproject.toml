@@ -10,13 +10,12 @@ packages = [
 ]
 [tool.poetry.dependencies]
 python = "^3.10"
-typer = "^0.7.0"
+typer = "^0.9.0"
 qpydao = { git = "https://github.com/fluent-qa/fluentqa-pdao.git", branch = "main" }
 mitmproxy = "^9.0.1"
 #prompt-toolkit = "^3.0.38"
-gradio = "^3.27.0"
-#altair = "^4.2.2"
-#psycopg2-binary = "^2.9.6"
+gradio = "^3.28.3"
+psycopg2-binary = "^2.9.6"
 
 [tool.poetry.dev-dependencies]
 
