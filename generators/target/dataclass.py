@@ -1,25 +1,25 @@
 from typing import Any, Dict
 
-from gema.dest import Dest
-from gema.enums import DestType, Language
-from gema.schema import Model
+from generators.api.models import StructureModel
+from generators.enums import *
+from generators.target import TargetStructureModel
 
 
-class Dataclass(Dest):
+class Dataclass(TargetStructureModel):
     template_file = "dataclass.jinja2"
-    type = DestType.dataclass
+    type = TargetType.dataclass
     language = Language.python
 
-    def _parse_model(self, imports: set[str], models: Dict[str, Any], model: Model):
+    def _parse_model(self, imports: set[str], models: Dict[str, Any], model: StructureModel):
         fields = []
         for field in model.fields:
             name = field.name
-            if isinstance(field.type, Model):
+            if isinstance(field.type, StructureModel):
                 type_ = f"'{name.title()}'"
                 models[name.title()] = self._parse_model(imports, models, field.type)
             elif isinstance(field.type, list):
                 imports.add("from typing import List")
-                if isinstance(field.type[0], Model):
+                if isinstance(field.type[0], StructureModel):
                     type_ = f"List['{name.title()}']"
                     models[name.title()] = self._parse_model(imports, models, field.type[0])
                 else:

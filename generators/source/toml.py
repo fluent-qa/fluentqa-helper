@@ -1,10 +1,9 @@
 import toml
 
-from gema.enums import SourceType
-from gema.source import Source
+from generators.enums import SourceType
+from generators.source import SourceStructureModel
 
-
-class Toml(Source):
+class Toml(SourceStructureModel):
     type = SourceType.toml
 
     def decode(self):

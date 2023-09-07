@@ -4,3 +4,4 @@ __pycache__/
 pid
 *.out
 *.lock
+generators/*

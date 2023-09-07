@@ -1,10 +1,9 @@
 import yaml
+from generators.enums import SourceType
+from generators.source import SourceStructureModel
 
-from gema.enums import SourceType
-from gema.source import Source
 
-
-class Yaml(Source):
+class Yaml(SourceStructureModel):
     type = SourceType.yaml
 
     def decode(self):

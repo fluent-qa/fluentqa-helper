@@ -1,15 +1,16 @@
 from typing import Any, Dict, Type
 
 import humps
+from typing import Any, Dict
 
-from gema.dest import Dest
-from gema.enums import DestType, Language
-from gema.schema import Model
+from generators.api.models import StructureModel
+from generators.enums import *
+from generators.target import TargetStructureModel
 
 
-class Go(Dest):
+class Go(TargetStructureModel):
     template_file = "go.jinja2"
-    type = DestType.go
+    type = TargetType.go
     language = Language.go
 
     @classmethod
@@ -23,16 +24,16 @@ class Go(Dest):
         if type_ is float:
             return "float"
 
-    def _parse_model(self, models: Dict[str, Any], model: Model):
+    def _parse_model(self, models: Dict[str, Any], model: StructureModel):
         fields = []
         for field in model.fields:
             name = field.name
             pascalize_name = humps.pascalize(field.name)
-            if isinstance(field.type, Model):
+            if isinstance(field.type, StructureModel):
                 type_ = pascalize_name
                 models[pascalize_name] = self._parse_model(models, field.type)
             elif isinstance(field.type, list):
-                if isinstance(field.type[0], Model):
+                if isinstance(field.type[0], StructureModel):
                     type_ = f"[]{pascalize_name}"
                     models[pascalize_name] = self._parse_model(models, field.type[0])
                 else:

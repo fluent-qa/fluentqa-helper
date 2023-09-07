@@ -1,13 +1,12 @@
 from typing import Any, Dict, Type
 
-from gema.dest import Dest
-from gema.enums import DestType, Language
-from gema.schema import Model
+from generators.enums import *
+from generators.source import SourceStructureModel
+from generators.target import TargetStructureModel
 
-
-class Rust(Dest):
+class Rust(TargetStructureModel):
     template_file = "rust.jinja2"
-    type = DestType.rust
+    type = TargetType.rust
     language = Language.rust
 
     @classmethod
@@ -21,15 +20,15 @@ class Rust(Dest):
         if type_ is float:
             return "f64"
 
-    def _parse_model(self, models: Dict[str, Any], model: Model):
+    def _parse_model(self, models: Dict[str, Any], model: SourceStructureModel):
         fields = []
         for field in model.fields:
             name = field.name
-            if isinstance(field.type, Model):
+            if isinstance(field.type, SourceStructureModel):
                 type_ = f"{name.title()}"
                 models[name.title()] = self._parse_model(models, field.type)
             elif isinstance(field.type, list):
-                if isinstance(field.type[0], Model):
+                if isinstance(field.type[0], SourceStructureModel):
                     type_ = f"Vec<{name.title()}>"
                     models[name.title()] = self._parse_model(models, field.type[0])
                 else:

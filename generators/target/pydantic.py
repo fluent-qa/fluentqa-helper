@@ -1,19 +1,19 @@
 from typing import Any, Dict
 
-from gema.dest import Dest
-from gema.enums import DestType, Language, SourceType
-from gema.schema import Model
-from gema.utils import camel_to_snake
+from generators.api.models import StructureModel
+from generators.enums import *
+from generators.target import TargetStructureModel
+from generators.type_loader import camel_to_snake
 
 
-class Pydantic(Dest):
+class Pydantic(TargetStructureModel):
     template_file = "pydantic.jinja2"
-    type = DestType.pydantic
+    type = TargetType.pydantic
     language = Language.python
 
     def __init__(
         self,
-        model: Model,
+        model: StructureModel,
         source_type: SourceType,
         optional: bool = False,
         snake_case: bool = False,
@@ -22,19 +22,19 @@ class Pydantic(Dest):
         self.snake_case = snake_case
         self.optional = optional
 
-    def _parse_model(self, imports: set[str], models: Dict[str, Any], model: Model):
+    def _parse_model(self, imports: set[str], models: Dict[str, Any], model: StructureModel):
         fields = []
         for field in model.fields:
             name = field.name
             snake_case_name = name
             if self.snake_case:
                 snake_case_name = camel_to_snake(name)
-            if isinstance(field.type, Model):
+            if isinstance(field.type, StructureModel):
                 type_ = f"'{name.title()}'"
                 models[name.title()] = self._parse_model(imports, models, field.type)
             elif isinstance(field.type, list):
                 imports.add("from typing import List")
-                if isinstance(field.type[0], Model):
+                if isinstance(field.type[0], StructureModel):
                     type_ = f"List['{name.title()}']"
                     models[name.title()] = self._parse_model(imports, models, field.type[0])
                 else:

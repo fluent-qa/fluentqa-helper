@@ -1,10 +1,10 @@
 import json
 
-from gema.enums import SourceType
-from gema.source import Source
+from generators.enums import SourceType
+from generators.source import SourceStructureModel
 
 
-class Json(Source):
+class Json(SourceStructureModel):
     type = SourceType.json
 
     def decode(self):

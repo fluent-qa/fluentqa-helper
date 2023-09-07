@@ -1,10 +1,8 @@
 import xmltodict
+from generators.enums import SourceType
+from generators.source import SourceStructureModel
 
-from gema.enums import SourceType
-from gema.source import Source
-
-
-class Xml(Source):
+class Xml(SourceStructureModel):
     type = SourceType.xml
 
     def decode(self):
