@@ -1,0 +1,4 @@
+{% for name,fields in models.items() %}interface {{ name }} {
+{% for field in fields %}    {{ field }}
+{% endfor %}}
+{% endfor %}

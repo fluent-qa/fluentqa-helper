@@ -1,0 +1,4 @@
+{% for name,fields in models.items() %}type {{ name }} struct {
+{% for field in fields %}    {{ field }}
+{% endfor %}}
+{% endfor %}

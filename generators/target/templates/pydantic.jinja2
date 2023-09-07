@@ -1,0 +1,8 @@
+from pydantic import BaseModel
+{% for import in imports %}{{ import }}
+{% endfor %}
+{% for name,fields in models.items() %}
+class {{ name }}(BaseModel):
+{% for field in fields %}    {{ field }}
+{% endfor %}
+{% endfor %}
