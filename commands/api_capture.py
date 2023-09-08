@@ -1,13 +1,22 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import os
+import asyncio
+from asyncio import AbstractEventLoop
 
 import typer
+from mitmproxy.options import Options
+from mitmproxy.tools.web.master import WebMaster
+from pydantic import BaseModel, ConfigDict
 
-from commands.mac_proxy_cli import proxy_on
+from capture import recorder
+from capture.recorder import PRecorder
+from commands.mac_proxy_cli import proxy_on, proxy_off
 
 capture = typer.Typer(name="capture")
-class CaptureServer(BaseDataModel):
+
+
+class CaptureServer(BaseModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     master: WebMaster = None
     status: bool = False
     loop: AbstractEventLoop = None
@@ -30,7 +39,9 @@ class CaptureServer(BaseDataModel):
         recorder.addons = [PRecorder(record_name=name)]
         self.master.addons.add(recorder)
 
+
 capture_server = CaptureServer()
+
 
 @capture.command(name="start", help="capture api")
 def start(name: str = typer.Option("name", "--name", help="capture name, example: test")):
@@ -46,7 +57,6 @@ def start(name: str = typer.Option("name", "--name", help="capture name, example
             capture_server.reload_plugin(name)
         else:
             capture_server.run(name)
-
 
 
 @capture.command(name="stop", help="stop capture api")

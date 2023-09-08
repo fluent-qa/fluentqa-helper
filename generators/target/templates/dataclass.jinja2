@@ -1,9 +1,0 @@
-from dataclasses import dataclass
-{% for import in imports %}{{ import }}
-{% endfor %}
-{% for name,fields in models.items() %}
-@dataclass
-class {{ name }}:
-{% for field in fields %}    {{ field }}
-{% endfor %}
-{% endfor %}

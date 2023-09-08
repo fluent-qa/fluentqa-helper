@@ -12,9 +12,6 @@ from qpybase import settings
 db_client = DatabaseClient.db_client(url=settings.db.url)
 
 
-# init_pg_database(db_client)
-
-
 def is_captured_url(url: str):
     url_prefix = settings.mitm.recorded_url.split(",")
     for item in url_prefix:
@@ -70,9 +67,10 @@ def save_http_flow(flow: HTTPFlow):
 
 
 class PRecorder:
-    def __init__(self):
+    def __init__(self,name="recorder"):
         print("api recorder initialized ....")
         print("database setting is " + settings.db.url)
+        self.record_name = name
 
     def load(self, loader: Loader):
         loader.add_option(
