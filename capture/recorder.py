@@ -67,10 +67,10 @@ def save_http_flow(flow: HTTPFlow):
 
 
 class PRecorder:
-    def __init__(self,name="recorder"):
+    def __init__(self, record_name="recorder"):
         print("api recorder initialized ....")
         print("database setting is " + settings.db.url)
-        self.record_name = name
+        self.record_name = record_name
 
     def load(self, loader: Loader):
         loader.add_option(
