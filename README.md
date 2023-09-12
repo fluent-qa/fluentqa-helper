@@ -94,10 +94,9 @@ select * from api_monitor_record where scenario_name=<your_record_name>
 
 - [X] [后台管理录制数据](https://github.com/fluent-qa/fluentqa-workspace)
 - [X] [接口数据下载](https://github.com/fluent-qa/fluentqa-workspace)
-- [] 下载数据修改后直接用于自动化测试
-- [] postman 接口数据管理
-- [] Code Generation
-- [] ......
+- [X] 下载数据修改后直接用于自动化测试
+- [X] postman 接口数据管理
+- [X] Code Generation
 
 ## References
 
