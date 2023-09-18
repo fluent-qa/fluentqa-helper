@@ -15,10 +15,13 @@ qpydao = { git = "git@github.com:fluent-qa/fluentqa-pdao.git", branch = "main" }
 qpybase = { git = "git@github.com:fluent-qa/fluentqa-pybase.git", branch = "main" }
 
 mitmproxy = "^9.0.1"
-gradio = "^3.33.1"
+gradio = "^3.43.1"
 psycopg2-binary = "^2.9.6"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

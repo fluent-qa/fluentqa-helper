@@ -4,6 +4,7 @@ import asyncio
 from asyncio import AbstractEventLoop
 
 import typer
+from capture.module_loader import load_module_from_file
 from mitmproxy.options import Options
 from mitmproxy.tools.web.master import WebMaster
 from pydantic import BaseModel, ConfigDict
@@ -29,7 +30,7 @@ class CaptureServer(BaseModel):
         self.master = web_master
         await self.master.run()
 
-    def run(self, name):
+    def run(self, name="load_plugins"):
         self.loop = asyncio.new_event_loop()
         self.status = True
         self.loop.run_until_complete(self.create_mitmweb(name))
@@ -38,6 +39,14 @@ class CaptureServer(BaseModel):
         self.master.addons.remove(recorder)
         recorder.addons = [PRecorder(record_name=name)]
         self.master.addons.add(recorder)
+
+    def load_plugin(self, plugin_file_path):
+        m = load_module_from_file("plugins", plugin_file_path)
+        self.master.addons.remove(m)
+        self.master.addons.add(m)
+
+    class Config:
+        arbitrary_types_allowed = True
 
 
 capture_server = CaptureServer()
@@ -65,3 +74,10 @@ def stop_capture():
     capture_server.status = False
     # todo: set value into a file
     # os.system("cat pid | xargs kill -9")
+
+
+def load_plugins(plugin_path: str):
+    if capture_server.master is None:
+        capture_server.run()
+        capture_server.status = True
+    capture_server.load_plugin(plugin_path)

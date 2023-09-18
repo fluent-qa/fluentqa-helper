@@ -1,15 +1,16 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from mitmutils import utils
 import os
 import re
 import time
+
+from plugins.utils import readFile
 
 CONFIG_FILE = './record-request.yaml'
 
 
 def response(flow: http.HTTPFlow) -> None:
-    matches = utils.readFile(CONFIG_FILE)
+    matches = readFile(CONFIG_FILE)
     url = flow.request.url
 
     if matches is not None:

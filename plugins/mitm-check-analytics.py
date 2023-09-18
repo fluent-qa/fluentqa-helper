@@ -2,7 +2,7 @@ import json
 import urllib.parse
 from mitmproxy import http
 from mitmproxy import ctx
-from mitmutils import utils
+from plugins import utils
 
 DATA_FILE = './check-analytics.yaml'
 

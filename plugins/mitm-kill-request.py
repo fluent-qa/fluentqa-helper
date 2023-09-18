@@ -1,6 +1,6 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from mitmutils import utils
+from plugins import utils
 import re
 
 CONFIG_FILE = './kill-request.yaml'
