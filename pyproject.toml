@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "fluentqa-helper"
+name = "qpyhelper"
 version = "0.1.0"
-description = ""
+description = "ui helper tools"
 authors = ["fluentqa <fluentqa@163.com>"]
 packages = [
     { include = "commands" },
@@ -11,16 +11,13 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.11"
 typer = "^0.9.0"
-qpydao = { git = "git@github.com:fluent-qa/fluentqa-pdao.git", branch = "main" }
-qpybase = { git = "git@github.com:fluent-qa/fluentqa-pybase.git", branch = "main" }
-
 mitmproxy = "^9.0.1"
 gradio = "^3.43.1"
 psycopg2-binary = "^2.9.6"
+qpydao = { git = "git@github.com:qdriven/fluentqa-pdao.git", branch = "main" }
+qpybase = { git = "git@github.com:fluent-qa/fluentqa-pybase.git", branch = "main" }
 
 [tool.poetry.dev-dependencies]
-
-[tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
 
 [build-system]
