@@ -15,7 +15,7 @@ mitmproxy = "^9.0.1"
 gradio = "^3.43.1"
 psycopg2-binary = "^2.9.6"
 qpydao = {path="../fluentqa_pdao", develop=true}
-qpybase = {path="../fluentqa_base", develop=true}
+qpybase = {path="../fluentqa-pybase", develop=true}
 
 
 [tool.poetry.dev-dependencies]
