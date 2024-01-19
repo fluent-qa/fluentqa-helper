@@ -13,9 +13,9 @@ python = ">=3.10,<=3.12"
 typer = "^0.9.0"
 mitmproxy = "^9.0.1"
 gradio = "^3.43.1"
-psycopg2-binary = "^2.9.9"
 qpydao = {path="../fluentqa-pdao", develop=true}
 qpybase = {path="../fluentqa-pybase", develop=true}
+psycopg2-binary = "^2.9.9"
 
 
 [tool.poetry.dev-dependencies]
