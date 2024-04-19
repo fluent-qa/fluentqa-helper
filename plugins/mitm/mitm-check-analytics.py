@@ -2,9 +2,9 @@ import json
 import urllib.parse
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 
-DATA_FILE = './check-analytics.yaml'
+DATA_FILE = 'check-analytics.yaml'
 
 
 def check_analytics(keyword, source, format):

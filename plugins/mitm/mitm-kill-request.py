@@ -1,9 +1,9 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 import re
 
-CONFIG_FILE = './kill-request.yaml'
+CONFIG_FILE = 'kill-request.yaml'
 
 
 def request(flow: http.HTTPFlow) -> None:

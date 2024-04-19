@@ -4,14 +4,14 @@ import asyncio
 from asyncio import AbstractEventLoop
 
 import typer
-from capture.module_loader import load_module_from_file
+from toolkits.capture.module_loader import load_module_from_file
 from mitmproxy.options import Options
 from mitmproxy.tools.web.master import WebMaster
 from pydantic import BaseModel, ConfigDict
 
-from capture import recorder
-from capture.recorder import PRecorder
-from commands.mac_proxy_cli import proxy_on, proxy_off
+from toolkits.capture import recorder
+from toolkits.capture.recorder import PRecorder
+from toolkits.mac_proxy_cli import proxy_on, proxy_off
 
 capture = typer.Typer(name="capture")
 
@@ -44,9 +44,6 @@ class CaptureServer(BaseModel):
         m = load_module_from_file("plugins", plugin_file_path)
         self.master.addons.remove(m)
         self.master.addons.add(m)
-
-    class Config:
-        arbitrary_types_allowed = True
 
 
 capture_server = CaptureServer()

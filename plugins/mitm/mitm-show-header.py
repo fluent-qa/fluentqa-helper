@@ -1,9 +1,9 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 import re
 
-CONFIG_FILE = './show-header.yaml'
+CONFIG_FILE = 'show-header.yaml'
 
 
 def searchHeaders(flow, config, state):

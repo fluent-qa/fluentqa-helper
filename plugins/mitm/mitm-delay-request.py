@@ -1,8 +1,8 @@
 from mitmproxy import http
-from plugins import utils
+from plugins.mitm import utils
 from mitmproxy.script import concurrent
 
-CONFIG_FILE = './delay-request.yaml'
+CONFIG_FILE = 'delay-request.yaml'
 
 
 @concurrent

@@ -1,6 +1,5 @@
 import gradio as gr
 
-from commands.mac_proxy_cli import proxy_off
 from commands.api_capture import *
 
 

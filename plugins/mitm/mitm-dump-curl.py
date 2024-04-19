@@ -1,11 +1,11 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 import os
 import re
 import time
 
-CONFIG_FILE = './dump-curl.yaml'
+CONFIG_FILE = 'dump-curl.yaml'
 
 
 def request(flow: http.HTTPFlow) -> None:

@@ -4,9 +4,9 @@ import os
 import re
 import time
 
-from plugins.utils import readFile
+from plugins.mitm.utils import readFile
 
-CONFIG_FILE = './record-request.yaml'
+CONFIG_FILE = 'record-request.yaml'
 
 
 def response(flow: http.HTTPFlow) -> None:

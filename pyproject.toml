@@ -5,21 +5,21 @@ description = "ui helper tools"
 authors = ["fluentqa <fluentqa@163.com>"]
 packages = [
     { include = "commands" },
-    { include = "capture" },
+    { include = "toolkits" },
     { include = "ui" }
 ]
 [tool.poetry.dependencies]
 python=">=3.10,<3.12"
-typer = "^0.9.0"
+typer = "^0.12.3"
 mitmproxy = "^10.2.4"
-gradio = "^3.43.1"
+gradio = "^4.27.0"
 qpydao = {path="../fluentqa-pdao", develop=true}
 qpybase = {path="../fluentqa-pybase", develop=true}
 psycopg2-binary = "^2.9.9"
 
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.4.2"
+pytest = "^8.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

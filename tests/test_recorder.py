@@ -1,4 +1,4 @@
-from capture.recorder import is_captured_url, ApiMonitorRecord, db_client
+from toolkits.capture.recorder import is_captured_url, ApiMonitorRecord, db_client
 
 
 def test_is_captuerd_url():

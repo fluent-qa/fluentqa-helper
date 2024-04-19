@@ -1,9 +1,9 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 import re
 
-HOME_DIR = './'
+HOME_DIR = '../'
 DATA_DIR = HOME_DIR + 'response/'
 ROUTER_FILE = HOME_DIR + 'replace-router.yaml'
 

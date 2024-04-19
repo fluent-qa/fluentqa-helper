@@ -1,10 +1,10 @@
 from mitmproxy import http
 from mitmproxy import ctx
-from plugins import utils
+from plugins.mitm import utils
 import re
 import json
 
-HOME_DIR = './'
+HOME_DIR = '../'
 DATA_DIR = HOME_DIR + 'response/'
 ROUTER_FILE = HOME_DIR + 'rewrite-router.yaml'
 

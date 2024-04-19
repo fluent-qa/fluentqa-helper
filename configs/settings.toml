@@ -1,4 +1,4 @@
 [default]
 log_level = 'INFO'
-db = {url="postgresql://postgres:changeit@127.0.0.1:7432/test_hub?options=-csearch_path=demo"}
+db = {url="postgresql://postgres:postgres@127.0.0.1:5432/test_hub?options=-csearch_path=demo"}
 mitm = { recorded_url = "https://www.baidu.com/" }
