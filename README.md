@@ -1,6 +1,6 @@
 # FluentQA Simple Capture
 
-***Only Support Python3.10***
+***Only Support Python3.10*** because of mimtproxy compatitable issue.
 
 
 - [zh-intro](README-zh.md)
