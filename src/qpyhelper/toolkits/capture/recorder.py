@@ -4,12 +4,11 @@ from typing import Optional
 from mitmproxy.addonmanager import Loader
 from mitmproxy.http import HTTPFlow
 from mitmproxy import ctx
-from qpydao import DatabaseClient
 from sqlmodel import SQLModel, Field
+from qpydao.database_client import db, databases
+from qpyconf import settings
 
-from qpybase import settings
-
-db_client = DatabaseClient.db_client(url=settings.db.url)
+db_client = databases.default_client()
 
 
 def is_captured_url(url: str):
@@ -69,7 +68,7 @@ def save_http_flow(flow: HTTPFlow):
 class PRecorder:
     def __init__(self, record_name="recorder"):
         print("api recorder initialized ....")
-        print("database setting is " + settings.db.url)
+        print("database setting is " + db.config.db_url)
         self.record_name = record_name
 
     def load(self, loader: Loader):

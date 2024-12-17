@@ -1,5 +1,8 @@
 # FluentQA Simple Capture
 
+***Only Support Python3.10***
+
+
 - [zh-intro](README-zh.md)
 
 For Some Reason,I want to try to capture API to generate tests,
@@ -118,7 +121,10 @@ select * from api_monitor_record where scenario_name=<your_record_name>
 - [X] postman 接口数据管理
 - [X] Code Generation
 
-## References
+## Installation
 
-- [gradio]
-- [todo-cli-app]( https://github.com/tddschn/todo-cli-tddschn.git)
+
+```sh
+ARCHFLAGS="-arch x86_64" LDFLAGS="-L/usr/local/opt/openssl/lib" CPPFLAGS="-I/usr/local/opt/openssl/include" uv pip install mitmproxy
+# ARCHFLAGS="-arch x86_64" LDFLAGS="-L/usr/local/opt/openssl/lib" CPPFLAGS="-I/usr/local/opt/openssl/include" uv add mitmproxy
+```

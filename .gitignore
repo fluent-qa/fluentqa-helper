@@ -6,3 +6,4 @@ pid
 *.lock
 generators/*
 extract_youtube_links/
+allure-results/
