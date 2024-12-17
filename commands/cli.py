@@ -1,7 +1,7 @@
 import typer
 
 from .api_capture import capture
-from qpyhelper.toolkits.mac_proxy_cli import proxy_switch_app
+from toolkits.mac_proxy_cli import proxy_switch_app
 
 # overall app
 app = typer.Typer()

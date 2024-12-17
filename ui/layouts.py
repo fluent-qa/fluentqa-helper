@@ -1,6 +1,6 @@
 import gradio as gr
 
-from qpyhelper.commands.api_capture import *
+from commands.api_capture import *
 
 
 def api_capture_tab():
@@ -31,7 +31,7 @@ def init_ui():
     with gr.Blocks() as qa_tools:
         gr.Markdown("# QA toolkits")
         api_capture_tab()
-        # load_plugin_tab()
+        load_plugin_tab()
         # code_generate_tab()
 
     qa_tools.launch()

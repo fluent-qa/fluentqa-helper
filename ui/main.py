@@ -1,4 +1,4 @@
-from qpyhelper.ui.layouts import init_ui
+from ui.layouts import init_ui
 
 
 def main():

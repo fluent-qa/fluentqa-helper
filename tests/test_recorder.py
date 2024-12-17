@@ -1,7 +1,7 @@
 from toolkits.capture.recorder import is_captured_url, ApiMonitorRecord, db_client
 
 
-def test_is_captured_url():
+def test_is_captuerd_url():
     print(is_captured_url("https://www.baidu.com/"))
 
 
@@ -11,3 +11,5 @@ def test_save_record():
         app="test"
     )
     db_client.save(record)
+
+test_save_record()
