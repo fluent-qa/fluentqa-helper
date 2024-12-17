@@ -1,30 +1,33 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+from __future__ import annotations
 import asyncio
 from asyncio import AbstractEventLoop
 
 import typer
-from toolkits.capture.module_loader import load_module_from_file
+from qpyhelper.toolkits.capture.module_loader import load_module_from_file
 from mitmproxy.options import Options
-from mitmproxy.tools.web.master import WebMaster
 from pydantic import BaseModel, ConfigDict
 
-from toolkits.capture import recorder
-from toolkits.capture.recorder import PRecorder
-from toolkits.mac_proxy_cli import proxy_on, proxy_off
+from qpyhelper.toolkits.capture import recorder
+from qpyhelper.toolkits.capture.recorder import PRecorder
+from qpyhelper.toolkits.mac_proxy_cli import proxy_on, proxy_off
+
+# Now import mitmproxy
+from mitmproxy.tools.web.master import WebMaster
 
 capture = typer.Typer(name="capture")
 
 
 class CaptureServer(BaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    master: WebMaster = None
+    master: WebMaster | None = None
     status: bool = False
-    loop: AbstractEventLoop = None
+    loop: AbstractEventLoop | None = None
 
     async def create_mitmweb(self, name):
         options = Options()
-        web_master = WebMaster(options)
+        web_master = WebMaster(opts=options)
         recorder.addons = [PRecorder(record_name=name)]
         web_master.addons.add(recorder)
         self.master = web_master

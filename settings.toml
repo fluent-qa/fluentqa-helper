@@ -1,0 +1,4 @@
+[default]
+log_level = 'INFO'
+databases = { default = { db_url = "postgresql://postgres:postgres@127.0.0.1:5432/test_hub" } }
+mitm = { recorded_url = "https://www.baidu.com/" }
